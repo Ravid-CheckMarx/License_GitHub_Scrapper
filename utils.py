@@ -1,0 +1,1 @@
+GitHub_base_license_search_url = "https://github.com/search?q=license%3A"
