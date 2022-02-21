@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from prettytable import PrettyTable
 invalid_license = False
+count_repos = 0
 
 # list of license names = ["afl-3.0", "agpl-3.0","apache-2.0", "artistic-2.0", "bsd-2-clause", "bsd-3-clause","bsd-3-clause-clear",
 # "bsd-4-clause", "bsl-1.0", "cc-by-4.0", "cc-by-sa-4.0", "cc0-1.0", "epl-1.0", "epl-2.0", "eupl-1.1", "eupl-1.2",
@@ -32,9 +33,12 @@ if not invalid_license:
         for input in inputs:
             if input['data-search-type']:
                 names = input['data-search-type']
-                print(names)
-                value = input.text
-                print(value)
+                if names == 'Repositories':
+                    count_repos +=1
+                if count_repos < 2:
+                    print(names)
+                    value = input.text
+                    print(value)
     disterbution_count = soup.find_all('span', class_='count')
     disterbution_names = soup.find_all('a', class_='filter-item')
 
